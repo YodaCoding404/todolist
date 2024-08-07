@@ -42,7 +42,7 @@ const insertItems = async () => {
     console.log(`${error.message}`);
   }
 };
-insertItems();
+// insertItems();
 
 const findItems = async () => {
   const items = await Items.find({});
