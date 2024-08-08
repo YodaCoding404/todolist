@@ -42,13 +42,15 @@ const insertItems = async () => {
     console.log(`${error.message}`);
   }
 };
-// insertItems();
+insertItems();
 
 const findItems = async () => {
   const items = await Items.find({});
   const list = items.map((item) => item.name);
   return list;
 };
+
+app.get("/favicon.ico", (req, res) => res.status(204));
 
 app.get("/", (req, res) => {
   findItems().then((list) => {
@@ -84,12 +86,10 @@ app.post("/", async (req, res) => {
 
 app.post("/delete", async (req, res) => {
   try {
-    setTimeout(async () => {
-      const filter = req.body.checkbox;
-      await Items.deleteOne({ name: filter });
-      console.log("Deleted Item!");
-      res.redirect("/");
-    }, 500);
+    const filter = req.body.checkbox;
+    await Items.deleteOne({ name: filter });
+    console.log("Deleted Item!");
+    res.redirect("/");
   } catch (error) {
     console.log(error.message);
     res.redirect("/");
