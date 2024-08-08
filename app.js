@@ -32,17 +32,17 @@ const item1 = new Items({ name: "Buy Food" });
 const item2 = new Items({ name: "Cook Food" });
 const item3 = new Items({ name: "Eat Food" });
 
-const defaultItems = [item1, item2, item3];
+// const defaultItems = [item1, item2, item3];
 
-const insertItems = async () => {
-  try {
-    await Items.insertMany(defaultItems);
-    console.log("Added default items!");
-  } catch (error) {
-    console.log(`${error.message}`);
-  }
-};
-insertItems();
+// const insertItems = async () => {
+//   try {
+//     await Items.insertMany(defaultItems);
+//     console.log("Added default items!");
+//   } catch (error) {
+//     console.log(`${error.message}`);
+//   }
+// };
+// insertItems();
 
 const findItems = async () => {
   const items = await Items.find({});
